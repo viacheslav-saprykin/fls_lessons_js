@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #0</h1>
+  <p>
+    Обчислити значення виразів: <br>
+    S1 = a + 12 + b;<br>
+    S2 = SQRT((a + b) / 2a);<br>
+    S3 = CBRT((a + b) * c;)<br>
+    S4 = SIN(a/(-b));<br>
+
+  </p>
+
+  <script>
+    // 1. Дані
+
+
+// Обчислюємо S1
+
+
+// Виводимо результат
+    let a = parseFloat(prompt('Введіть значення a', '0'))
+    let b = parseFloat(prompt('Введіть значення b', '0'))
+    let c = parseFloat(prompt('Введіть значення c', '0'))
+
+    // 2. Обчислення
+    let sum1 = a + 12 + b;
+    let sum2 = Math.sqrt((a+b) / 2 * a);
+    let sum3 = Math.cbrt((a+b) * c);
+    let sum4 = Math.sin(a / (-b));
+
+    // 3. Результат
+    document.write(`
+    Значення: <br>
+      S1: ${sum1}; <br>
+      S2: ${sum2}; <br>
+      S3: ${sum3}; <br>
+      S5: ${sum4};
+      `) 
+
+  </script>
+</body>
+
+</html>
