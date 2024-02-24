@@ -32,18 +32,18 @@
     let c = parseFloat(prompt('Введіть значення c', '0'))
 
     // 2. Обчислення
-    let sum1 = a + 12 + b;
-    let sum2 = Math.sqrt((a+b) / 2 * a);
-    let sum3 = Math.cbrt((a+b) * c);
-    let sum4 = Math.sin(a / (-b));
+    let mathematicalExpression1 = a + 12 + b;
+    let mathematicalExpression2 = Math.sqrt((a+b) / (2 * a));
+    let mathematicalExpression3 = Math.cbrt((a+b) * c);
+    let mathematicalExpression4 = Math.sin(a / (-b));
 
     // 3. Результат
-    document.write(`
+    document.write(`<br>
     Значення: <br>
-      S1: ${sum1}; <br>
-      S2: ${sum2}; <br>
-      S3: ${sum3}; <br>
-      S5: ${sum4};
+    Математичний вираз #1: ${mathematicalExpression1}; <br>
+    Математичний вираз #2: ${mathematicalExpression2}; <br>
+    Математичний вираз #3: ${mathematicalExpression3}; <br>
+    Математичний вираз #4: ${mathematicalExpression4};
       `) 
 
   </script>

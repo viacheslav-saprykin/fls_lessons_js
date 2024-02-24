@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #6</h1>
+  <p>
+    6. З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.
+  </p>
+
+  <script>
+    // 1. Дані
+    const dayWeek = parseFloat(prompt('Введіть номер тижня', '1'))
+    let result
+
+    // 2. Обчислення
+    switch (dayWeek) {
+      case 1:
+        result = '1-й день тижня - це понеділок.'
+        break
+
+      case 2:
+        result = '2-й день тижня - це вівторок.'
+        break
+
+      case 3:
+        result = '3-й день тижня - це середа.'
+        break
+
+      case 4:
+        result = '4-й день тижня - це четвер.'
+        break
+
+      case 5:
+        result = '5-й день тижня - це п\'ятниця.'
+        break
+
+      case 6:
+        result = '6-й день тижня - це субота.'
+        break
+
+      case 7:
+        result = '7-й день тижня - це неділя.'
+        break
+
+      default:
+        result = 'Некоректний номер тижня.'
+        break
+    }
+    // 3. Результат
+    document.write(result)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #5</h1>
+  <p>
+    5. З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести
+    на екран назву транспортного засобу, яким він може керувати
+  </p>
+
+  <script>
+    // 1. Дані
+    const driverCategory = prompt('Назва категорії водія', '').toUpperCase();
+    let result
+
+    // 2. Обчислення
+    if (driverCategory === 'A') result = `У вас категорія ${driverCategory}. Ви можете керувати мотоциклом.`
+    else if (driverCategory === 'B') result = `У вас категорія ${driverCategory}. Ви можете керувати легковим автомобілем.`
+    else if (driverCategory === 'C') result = `У вас категорія ${driverCategory}. Ви можете керувати вантажним автомобілем.`
+    else result = 'Некоректні данні або даної категорії не існує.'
+    // 3. Результат
+    document.write(result)
+  </script>
+</body>
+
+</html>
