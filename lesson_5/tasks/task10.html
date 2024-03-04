@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #10</h1>
+  <p>
+    Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.
+  </p>
+
+  <script>
+
+let start = parseInt(prompt("Введіть початкове число:"));
+let end = parseInt(prompt("Введіть кінцеве число:"));
+
+function sumOddNumbers(start, end) {
+    let sum = 0;
+    for (let i = start; i <= end; i++) {
+        if (i % 2 !== 0) {
+            sum += i;
+        }
+    }
+    return sum;
+}
+
+let result = sumOddNumbers(start, end);
+document.write("Сума непарних чисел між " + start + " та " + end + " дорівнює " + result);
+  </script>
+
+</body>
+
+</html>

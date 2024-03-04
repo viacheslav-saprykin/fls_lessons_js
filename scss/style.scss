@@ -8,7 +8,7 @@
 @import "_reset.scss";
 
 // Functions
-@import '_functions.scss';
+@import "_functions.scss";
 
 .wrapper {
   overflow: clip;
@@ -23,8 +23,8 @@
 
 body {
   color: black;
-  background: rgb(60,230,232);
-  background: linear-gradient(0deg, rgba(60,230,232,1) 0%, rgba(86,158,223,0.774969362745098) 88%);
+  background: rgb(60, 230, 232);
+  background: linear-gradient(0deg, rgba(60, 230, 232, 1) 0%, rgba(86, 158, 223, 0.774969362745098) 88%);
   font-size: toRem(16); // розміру шрифту, замість px в rem
 
   padding: toRem(20);
@@ -63,4 +63,47 @@ h2 {
 p {
   font-weight: 500;
   font-style: normal;
+}
+
+.button {
+  width: 80px;
+  height: 30px;
+  align-items: center;
+  appearance: button;
+  background-color: #0276ff;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue";
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 10px 21px;
+  text-align: center;
+  text-transform: none;
+  transition:
+    color 0.13s ease-in-out,
+    0.13s ease-in-out,
+    opacity 0.13s ease-in-out,
+    box-shadow 0.13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: toRem(20);
+
+  &:active {
+    background-color: #006ae8;
+  }
+
+  &:hover {
+    background-color: #1c84ff;
+  }
+}
+.task5-1 {
+	list-style: circle;
 }

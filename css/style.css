@@ -144,3 +144,58 @@ p {
   font-weight: 500;
   font-style: normal;
 }
+
+.button {
+  width: 80px;
+  height: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-appearance: button;
+     -moz-appearance: button;
+          appearance: button;
+  background-color: #0276ff;
+  border-radius: 8px;
+  border-style: none;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+          box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-family: "RM Neue";
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 10px 21px;
+  text-align: center;
+  text-transform: none;
+  -webkit-transition: color 0.13s ease-in-out, 0.13s ease-in-out, opacity 0.13s ease-in-out, -webkit-box-shadow 0.13s ease-in-out;
+  transition: color 0.13s ease-in-out, 0.13s ease-in-out, opacity 0.13s ease-in-out, -webkit-box-shadow 0.13s ease-in-out;
+  transition: color 0.13s ease-in-out, 0.13s ease-in-out, opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
+  transition: color 0.13s ease-in-out, 0.13s ease-in-out, opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out, -webkit-box-shadow 0.13s ease-in-out;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 1.25rem;
+}
+.button:active {
+  background-color: #006ae8;
+}
+.button:hover {
+  background-color: #1c84ff;
+}
+
+.task5-1 {
+  list-style: circle;
+}

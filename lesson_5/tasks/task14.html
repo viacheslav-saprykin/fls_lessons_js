@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #14</h1>
+  <p>
+    Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір,
+    поки суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно ввести).
+  </p>
+
+  <script>
+    const amountPurchase = parseFloat(prompt(`Введіть суму покупки`, '0'));
+    let currentPayment = 0;
+    while (currentPayment < amountPurchase) {
+      currentPayment = parseFloat(prompt(`Введіть суму Вашої оплати`, '0'));
+      let remainingAmount = amountPurchase - currentPayment;
+      if (remainingAmount > 0) {
+        console.log(`Оплата не здійснена, будь-ласка, повторіть оплату. Вам ще потрібно сплатити ${amountPurchase.toFixed(2)} грн.`);
+      }
+    }
+    document.write(`Дякуємо за покупку. Ваш чек на ${currentPayment} грн.`);
+
+  </script>
+
+</body>
+
+</html>
