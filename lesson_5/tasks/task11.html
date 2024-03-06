@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #11</h1>
+  <p>
+    Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.
+  </p>
+
+  <script>
+
+    const minNum = parseInt(prompt('Введіть мінмільне число'))
+    const maxNum = parseInt(prompt('Введіть максимальне число'))
+
+    let sum = 0
+    for (let i = 0; i < 5;) {
+      const randNum =
+        minNum +
+        Math.floor(Math.random() * (maxNum - minNum + 1))
+
+      if (randNum % 2 !== 0) {
+        sum += randNum
+        i++
+      }
+    }
+    document.write(`Sum=${sum}`)
+  </script>
+
+</body>
+
+</html>
