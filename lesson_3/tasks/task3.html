@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #3</h1>
+  <p>
+    3. Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.
+  </p>
+
+  <script>
+    const minValue = 1;
+    const maxValue = 5;
+    const randomNumber = minValue + Math.floor(Math.random() * (maxValue - minValue + 1));
+    let userNumber = parseInt(prompt(`Введіть число від ${minValue} до ${maxValue}`));
+
+    if (isNaN(userNumber)) {
+      alert('Будь ласка, введіть числове значення.');
+    } else {
+      if (userNumber === randomNumber) {
+        alert('Ви вгадали');
+      } else {
+        userNumber = parseInt(prompt('Ви не вгадали. Введіть число'));
+
+        if (isNaN(userNumber)) {
+          alert('Будь ласка, введіть числове значення.');
+        } else {
+          if (userNumber === randomNumber) {
+            alert('Ви вгадали');
+          } else {
+            alert('Ви не вгадали. Випадкове число було ' + randomNumber);
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

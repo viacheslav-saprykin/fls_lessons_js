@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #3</h1>
+  <p>
+    Створити окремі функції, які для 4 чисел знаходять: <br>
+    1. суму; <br>
+    2. добуток; <br>
+    3. середнє арифметичне; <br>
+    4. мінімальне значення. <br>
+
+    <br>
+    Відповідь: Створив 4 окремі функції у скрипті цього коду. Протестовано та виведено на сторінку з input значенням 10,
+    20, 30, 40 відповідно.
+  </p>
+
+  <script>
+    // 1. Функція які для 4 чисел знаходять суму
+    function getSum(numOne = 0, numTwo = 0, numThree = 0, numFour = 0) {
+      return numOne + numTwo + numThree + numFour;
+    }
+
+    let testGetSum = getSum(10, 20, 30, 40);
+    document.write(`Результатом виконання операції сума чисел є ${testGetSum}.<br>`)
+
+    // 2. Функція які для 4 чисел знаходять добуток
+    function getMultiply(numOne = 1, numTwo = 1, numThree = 1, numFour = 1) {
+      return numOne * numTwo * numThree * numFour;
+    }
+
+    let testGetMultiply = getMultiply(10, 20, 30, 40);
+    document.write(`Результатом виконання операції добуток чисел є ${testGetMultiply}.<br>`)
+
+    // 3. Функція які для 4 чисел знаходять середнє арифметичне
+    function getAverage(numOne = 0, numTwo = 0, numThree = 0, numFour = 0, numFive = 4) {
+      return (numOne + numTwo + numThree + numFour) / numFive;
+    }
+
+    let testGetAverage = getAverage(10, 20, 30, 40, 4);
+    document.write(`Результатом виконання операції середнє арифметичне чисел є ${testGetAverage}.<br>`)
+
+    // 4. Функція знайти мінімальне значення
+    function getMinValue(numOne, numTwo, numThree, numFour) {
+      return Math.min(numOne, numTwo, numThree, numFour);
+    }
+
+    let testGetMinValue = getMinValue(10, 20, 30, 40);
+    document.write(`Результатом виконання операції  мінімальне значення є ${testGetMinValue}.<br>`)
+
+  </script>
+
+</body>
+
+</html>

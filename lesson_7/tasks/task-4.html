@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #4</h1>
+  <p>
+    Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість
+    додатних, кількість більших за 100. <br>
+    <br>
+    Відповідь: <br>
+  </p>
+
+  <script>
+    // 1. Функція 
+    function getSum(numOne, numTwo, numThree) {
+      let pairResult = 0;
+      let positiveNumber = 0;
+      let greaterThanOneHundred = 0;
+
+      if (numOne % 2 === 0)
+        pairResult++;
+      if (numOne > 0)
+        positiveNumber++;
+      if (numOne > 100)
+        greaterThanOneHundred++;
+
+      if (numTwo % 2 === 0)
+        pairResult++;
+      if (numTwo > 0)
+        positiveNumber++;
+      if (numTwo > 100)
+        greaterThanOneHundred++;
+
+      if (numThree % 2 === 0)
+        pairResult++;
+      if (numThree > 0)
+        positiveNumber++;
+      if (numThree > 100)
+        greaterThanOneHundred++;
+
+      return {
+        pairResult: pairResult,
+        positiveNumber: positiveNumber,
+        greaterThanOneHundred: greaterThanOneHundred
+      };
+    }
+
+    let testGetSum = getSum(
+      parseInt(prompt('Введіть перше значення')),
+      parseInt(prompt('Введіть друге значення')),
+      parseInt(prompt('Введіть трете значення')),
+      
+    );
+    
+    document.write(`
+      Кількість парних чисел: ${testGetSum.pairResult}.<br>
+      Кількість чисел більших 0: ${testGetSum.positiveNumber}.<br>
+      Кількість чисел більших 100: ${testGetSum.greaterThanOneHundred}.<br>
+    `)
+
+  </script>
+
+</body>
+
+</html>

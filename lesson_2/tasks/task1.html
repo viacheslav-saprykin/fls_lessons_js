@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці
+  </p>
+
+  <script>
+    // 1. Дані
+    let numberOne = parseFloat(prompt('Введіть перше число', '0'))
+    let numberTwo = parseFloat(prompt('Введіть друге число', '0'))
+
+    // 2. Обчислення
+    let sum = numberOne + numberTwo;
+    let production = numberOne * numberTwo;
+    let share = numberOne / numberTwo;
+
+    // 3. Результат
+    console.table([sum, production, share]);
+    document.write('<table>');
+    document.write('<tr><th>Операція</th><th>Результат</th></tr>');
+    document.write(`<tr><td>Сума</td><td>${sum}</td></tr>`);
+    document.write(`<tr><td>Добуток</td><td>${production}</td></tr>`);
+    document.write(`<tr><td>Частка</td><td>${share}</td></tr>`);
+    document.write('</table>');
+  </script>
+</body>
+
+</html>

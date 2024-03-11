@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #3</h1>
+  <p>
+    Інвестор вклав S тис. грн на 20 років під 20% річних, а потім на 17 років під 27% річних. Визначити за допомогою циклів суму, яку він одержить.  </p>
+
+  <script>
+    const investmentFirst = parseInt(prompt(`Введіть розмір інвестиції у (грн.)`, '0'));
+    const perAnnumFirstProgram = 0.2
+    const perAnnumSecondProgram = 0.27
+    const investmentTermFirstProgram = 20
+    const investmentTermSecondProgram = 17
+    const incomeOneYear = investmentFirst * perAnnumFirstProgram
+
+    let sumFirstProgram = 0
+
+    for (let i = 1; i <= investmentTermFirstProgram; i++) {
+      sumFirstProgram += incomeOneYear;
+    }
+    document.write(`<br> Інвестор, який вклав ${investmentFirst} грн. за ${investmentTermFirstProgram} р. заробить ${sumFirstProgram} грн., без врахування суми самої інвестиції.` )
+
+    let sumSecondProgram = 0
+    const investmentSecond = investmentFirst + sumFirstProgram
+    const incomeSecondYear = investmentSecond * perAnnumSecondProgram
+
+    for (let j = 1; j <= investmentTermSecondProgram; j++) {
+      sumSecondProgram += incomeSecondYear;
+    }
+
+    let sumAllProgram = sumFirstProgram + sumSecondProgram
+
+    document.write(`<br> Інвестор, після першої інвестиційної програми, вклав ${investmentSecond} грн. за ${investmentTermSecondProgram} р. заробить ${sumSecondProgram} грн., без врахування суми самої інвестиції.` )
+    
+    document.write(`<br> Інвестор, після першої та другої інвестиційної програм, першопочатково вклав ${investmentFirst} грн. за ${investmentTermFirstProgram + investmentTermSecondProgram} р заробить на відсотках ${sumAllProgram} грн.` )
+
+
+  </script>
+  
+
+</body>
+
+</html>

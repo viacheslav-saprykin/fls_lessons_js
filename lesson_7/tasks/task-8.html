@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #8</h1>
+  <p>
+    Створити функцію, яка виводить банер у функцію передаються: зображення, заголовок та посилання, куди переходимо при
+    кліку на зображення тег img повинне знаходитись у середині тегу a: <br>
+    <br>
+    Відповідь:
+  </p>
+  <script>
+    // Функція
+    function showBanner(imageSrc, title, link) {
+      const banner = `
+        <a href="${link}">
+          <img src="${imageSrc}" style="width:200px" alt="${title}">
+        </a>
+      `;
+      document.write(banner);
+    }
+
+    // Використання функції
+    showBanner("../../lesson_7/tasks/img/img1.jpg", "Title", "https://google.com");
+
+  </script>
+</body>
+
+</html>

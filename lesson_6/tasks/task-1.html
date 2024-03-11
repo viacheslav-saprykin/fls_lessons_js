@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Інвестор вклав S тис. грн на 20 років під 20% річних. Визначити за допомогою циклів суму, яку він одержить (без оподаткування).
+  </p>
+
+  <script>
+    const investment = parseInt(prompt(`Введіть розмір інвестиції у (грн.)`, '0'));
+    const perAnnum = 0.2
+    const investmentTerm = 20
+    const incomeOneYear = investment * perAnnum
+
+    let sum = 0
+
+    for (let i = 1; i <= investmentTerm; i++) {
+      sum += incomeOneYear;
+    }
+    document.write(`Інвестор, який вклав ${investment} грн. за ${investmentTerm} р. заробить ${sum} грн., без врахування самої інвестиції.` )
+
+  </script>
+
+</body>
+
+</html>

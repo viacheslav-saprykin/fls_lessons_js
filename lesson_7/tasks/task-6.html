@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #6</h1>
+  <p>
+    Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим повідомленням). <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+    // Функція
+    function newTable(rows, cols, message) {
+    let table = '<table>';
+
+    for (let i = 0; i < rows; i++) {
+        table += '<tr>';
+        for (let j = 0; j < cols; j++) {
+            table += '<td>' + message + '</td>';
+        }
+        table += '</tr>';
+    }
+
+    table += '</table>';
+    return table;
+}
+
+// Використання функції
+let testTable = newTable(5, 3, 'Welcome to Java Script Course');
+document.write(testTable);
+
+  </script>
+
+</body>
+
+</html>

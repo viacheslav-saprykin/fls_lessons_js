@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Створити 10 елементів для введення цін продуктів
+  </p>
+
+  <script>
+    document.write('<table style="border: 2px solid black; border-collapse: collapse;">');
+    document.write('<tr><th>Product #</th><th>Price</th></tr>');
+    for (let itemProduct = 1; itemProduct <= 10; itemProduct++) {
+      let price = prompt(`Product # ${itemProduct}`, '0');
+      document.write('<tr><td style="border: 1px solid black;">' + 'Product #' + itemProduct + '</td><td style="border: 1px solid black;">' + price + '</td></tr>');
+    }
+    document.write('</table>');
+
+  </script>
+
+</body>
+
+</html>

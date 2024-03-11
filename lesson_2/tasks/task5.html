@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #5</h1>
+  <p>
+    Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.
+  </p>
+
+  <script>
+    // 1. Дані
+    let amountOfSecond = parseFloat(prompt('Введіть кількість секунд', '0'))
+
+    // 2. Обчислення
+    let convertToHours = amountOfSecond / 3600
+    let convertTominutes = amountOfSecond / 60
+
+    // 3. Результат
+    document.write(`${amountOfSecond} секунд = це ${convertToHours.toFixed(2)} годин або ${convertTominutes.toFixed(2)} хвилин. `);
+  </script>
+
+</body>
+
+</html>

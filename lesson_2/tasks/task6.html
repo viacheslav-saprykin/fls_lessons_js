@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #6</h1>
+  <p>
+    З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо та
+    загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
+  </p>
+
+  <script>
+    // 1. Дані
+    const price1 = parseFloat(prompt('Яка вартість товару один? (грн.)', '0'))
+    const quantity1 = parseFloat(prompt('Яка кількість товару один? (од.)', '0'))
+
+    const price2 = parseFloat(prompt('Яка вартість товару два? (грн.)', '0'))
+    const quantity2 = parseFloat(prompt('Яка кількість товару два? (од.)', '0'))
+
+    const price3 = parseFloat(prompt('Яка вартість товару три? (грн.)', '0'))
+    const quantity3 = parseFloat(prompt('Яка кількість товару три? (од.)', '0'))
+
+    // 2. Обчислення
+    const total1 = price1 * quantity1;
+    const total2 = price2 * quantity2;
+    const total3 = price3 * quantity3;
+    const grandTotal = total1 + total2 + total3;
+
+    // 3. Результат
+    document.write(`Вартість товару один становить = ${total1} грн, Вартість товару два становить = ${total2} грн, Вартість товару три становить = ${total3} грн. Загальна вартість всіх товарів становить ${grandTotal} грн.`);
+  </script>
+
+</body>
+
+</html>

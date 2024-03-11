@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.
+  </p>
+
+  <script>
+    // 1. Дані
+    let yearOfBirth = parseInt(prompt('Введіть рік вашого народження', '0'))
+    const currentYear = 2024
+
+    // 2. Обчислення
+    let quantityOfYears = currentYear - yearOfBirth;
+
+    // 3. Результат
+    document.write(`Вітаю! Вам - ${quantityOfYears}р.`);
+  </script>
+</body>
+
+</html>

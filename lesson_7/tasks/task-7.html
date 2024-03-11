@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #7</h1>
+  <p>
+    Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються у
+    функцію) <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+// Функція
+function showPictures() {
+  const rangeStart = 1
+  const rangeEnd = 4
+
+  const imgNumber =
+    rangeStart + Math.floor(Math.random() * (rangeEnd - rangeStart + 1))
+
+  const imgPath = `../../lesson_7/tasks/img/img${imgNumber}.jpg`
+  document.write(`<img src="${imgPath}" style="width:200px"/> `)
+}
+
+// Використання функції
+showPictures();
+
+
+  </script>
+</body>
+
+</html>

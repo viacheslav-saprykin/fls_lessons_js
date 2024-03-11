@@ -1,0 +1,136 @@
+// Mathematical library
+@use "sass:math";
+
+// Fonts
+@import "_fonts.scss";
+
+// Reset basic style
+@import "_reset.scss";
+
+// Functions
+@import "_functions.scss";
+
+.wrapper {
+  overflow: clip;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  > main {
+    flex-grow: 1;
+  }
+}
+
+body {
+  color: black;
+  background: rgb(60, 230, 232);
+  background: linear-gradient(0deg, rgba(60, 230, 232, 1) 0%, rgba(86, 158, 223, 0.774969362745098) 88%);
+  font-size: toRem(16); // розміру шрифту, замість px в rem
+
+  padding: toRem(20);
+  margin: 0 auto;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+footer {
+  margin: 0 auto;
+}
+
+ol {
+  display: flex;
+  row-gap: toRem(20);
+  column-gap: toRem(20);
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-size: toRem(20);
+  font-weight: 900;
+  margin-bottom: toRem(30);
+}
+
+h2 {
+  display: flex;
+  font-size: toRem(16);
+  margin-bottom: toRem(20);
+  font-weight: 700;
+}
+
+p {
+  font-weight: 500;
+  font-style: normal;
+}
+
+.button {
+  width: 80px;
+  height: 30px;
+  align-items: center;
+  appearance: button;
+  background-color: #0276ff;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue";
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 10px 21px;
+  text-align: center;
+  text-transform: none;
+  transition:
+    color 0.13s ease-in-out,
+    0.13s ease-in-out,
+    opacity 0.13s ease-in-out,
+    box-shadow 0.13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: toRem(20);
+
+  &:active {
+    background-color: #006ae8;
+  }
+
+  &:hover {
+    background-color: #1c84ff;
+  }
+}
+.task5-1 {
+	list-style: circle;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+table tr:nth-child(even) {
+  background-color: #eee;
+}
+
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table th {
+  background-color: black;
+  color: white;
+}

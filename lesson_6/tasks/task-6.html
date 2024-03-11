@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+<br>
+
+<body>
+  <h1>Задача #5</h1>
+  <p>Дано натуральні числа від 20 до 50. Надрукувати ті з них, які діляться на 3, але не діляться на 5<br>
+    <br>
+    Відповідь: <br>
+  </p>
+
+
+  <script>
+    const minNum = 20;
+    const maxNum = 50;
+
+    for (let i = minNum; i <= maxNum; i++) {
+      if (i % 3 === 0 && i % 5 !== 0) {
+        document.write(`${i} <br>`);
+      }
+    }
+</script>
+
+
+</body>
+
+</html>

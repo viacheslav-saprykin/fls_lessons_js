@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    1. З клавіатури вводяться імена двох дітей та кількість у них цукерок. Вивести не екран ім’я тієї дитини, у якої
+    кількість цукерок є більшою, або вивести, що кількість однакова.
+  </p>
+
+  <script>
+    // 1. Дані
+    let childOne = (prompt('Введіть ім‘я першої дитини', ''))
+    let hasFirstChild = parseFloat(prompt(`Кількість цукерок у ${childOne}`, '0'))
+    let childTwo = (prompt('Введіть ім‘я другої дитини', ''))
+    let hasSecondChild = parseFloat(prompt(`Кількість цукерок у ${childTwo}`, '0'))
+    let result
+
+    // 2. Обчислення
+    if (hasFirstChild > hasSecondChild)
+      result = `У ${childOne} цукерок більше.`
+    else if (hasFirstChild < hasSecondChild)
+      result = `У ${childTwo} цукерок більше.`
+    else if (hasFirstChild === hasSecondChild)
+      result = `У ${childOne} та ${childTwo} цукерок порівну.`
+    else
+      result = 'Некоректні дані'
+
+    // 3. Результат
+    document.write(result)
+  </script>
+
+</body>
+
+</html>

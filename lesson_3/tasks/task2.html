@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    2. З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше,
+    якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+  </p>
+
+  <script>
+    // 1. Дані
+    let productPrice = parseFloat(prompt('Введіть ціну товару (грн.)', '0'))
+    let hasMoney = parseFloat(prompt('Введіть кількість грошей (грн.)', '0'))
+    let lotteryTicketPrice = 4
+    let result
+
+    // 2. Обчислення
+    if (productPrice > hasMoney)
+      result = 'Вибачте, але грошей не вистачає!'
+    else if ((hasMoney - productPrice) >= lotteryTicketPrice)
+      result = `Дякуємо за покупку! Пропонуємо придбати лотерейний квиток всього за ${lotteryTicketPrice} грн.`
+    else if ((hasMoney - productPrice) < lotteryTicketPrice)
+      result = 'Дякуємо за покупку!'
+    else
+      result = 'Некоректні дані'
+
+    // 3. Результат
+    document.write(result)
+  </script>
+</body>
+
+</html>
