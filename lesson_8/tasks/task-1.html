@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Дано масив, який містить оцінки з К предметів. Знайти середній бал і з'ясувати до якої категорії він відноситься
+    (відмінник, двієчник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трієчник(є хоча би одна
+    трійка)). <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+    function getMinGrade(gradesList) {
+      let min = gradesList[0]
+
+      for (let index = 1; index < gradesList.length; index++) {
+        if (gradesList[index] < min)
+          min = gradesList[index]
+      }
+
+      return min
+    }
+
+
+    function getGradesCategory(minGradeList) {
+
+      let result
+
+      switch (minGradeList) {
+        case 5:
+          result = `Учень є відмінником.`
+          break;
+
+        case 4:
+          result = `Учень є хорошистом.`
+          break;
+
+        case 3:
+          result = `Учень є трієчником.`
+          break;
+
+        default: {
+          result = `Учень є двієчником.`
+        }
+      }
+
+      return result
+
+    }
+
+    function getPupilCategory(gradesSubjects) {
+      const minGradeList = getMinGrade(gradesSubjects)
+      let category = getGradesCategory(minGradeList)
+      return category
+    }
+
+    let gradesSubjects = [5, 5, 5, 4, 3]
+    let category = getPupilCategory(gradesSubjects);
+
+    document.write(category);
+
+  </script>
+
+</body>
+
+</html>
