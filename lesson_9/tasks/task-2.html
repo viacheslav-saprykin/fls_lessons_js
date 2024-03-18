@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена
+    7-ками. <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+    let numFromUser = parseInt(prompt('Введіть кількість елементів'))
+    let amountElements = new Array(numFromUser)
+    let halfElements = Math.round(numFromUser / 2)
+
+    amountElements.fill(1, 0, halfElements)
+    amountElements.fill(7, halfElements)
+    document.write(`Створений користувачем масив заповнений у першій половині одиницями та у другій половині сімками - ${amountElements}; <br>`)
+  </script>
+
+</body>
+
+</html>

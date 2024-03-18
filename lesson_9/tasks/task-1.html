@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Користувач вводить кількість елементів. Створити масив, що складається з вказаної кількості елементів заповнених нулями. <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+    let amountElements = new Array(parseInt(prompt('Введіть кількість елементів')))
+    amountElements.fill(0) 
+    document.write(`Створений користувачем масив заповнений нулями - ${amountElements}; <br>`)
+
+  </script>
+
+</body>
+
+</html>

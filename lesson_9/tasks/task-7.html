@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #7</h1>
+  <p>
+    Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки.<br>
+    Відповідь:
+  </p>
+
+  <script>
+
+    let priceGoods = [101, 102, 103, 5, 10, 45, 756, 452, 1200, 1300, 2000, 2, 7, 9]
+    let priceGoodsAfterDiscount = []
+    const discount = (30 / 100)
+    for (let element of priceGoods) {
+      if (element > 1000)
+        priceGoodsAfterDiscount.push(element - (element * discount))
+    }
+    document.write(`На всі товари вартістю більше ніж 1000 гривень додаткова знижку 30%. Нова вартість цих товарів - ${priceGoodsAfterDiscount}.`) 
+  </script>
+
+</body>
+
+</html>
