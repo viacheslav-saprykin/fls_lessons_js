@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #3</h1>
+  <p>
+    Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000).<br>
+    Сформувати список з тих цін, які більші за попереднє значення
+    <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+
+    function getRandomNumberInArray(countNumber, minNumber, maxNumber) {
+      let arrayNumbers = []
+      for (let i = 0; i < countNumber; i++) {
+        const numberRandom = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+        arrayNumbers.push(numberRandom)
+      }
+      return arrayNumbers
+    }
+
+    const bondPrices = getRandomNumberInArray(10, 1, 10000)
+    bondPrices.sort((number1, number2) => {
+      if (number1 > number2) return 1
+      if (number1 < number2) return -1
+      return 0
+    })
+
+    document.write(`
+      Формування списку цін за зростанням: ${bondPrices}. <br>
+    `)
+
+  </script>
+
+</body>
+
+</html>

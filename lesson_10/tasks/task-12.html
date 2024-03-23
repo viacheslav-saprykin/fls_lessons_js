@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #11</h1>
+  <p>
+    Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000).<br>
+    Знайти останню ціну, що більше за 1000
+    <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+
+    function getRandomNumberInArray(countNumber, minNumber, maxNumber) {
+      let arrayNumbers = []
+      for (let i = 0; i < countNumber; i++) {
+        const numberRandom = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+        arrayNumbers.push(numberRandom)
+      }
+      return arrayNumbers
+    }
+
+    // const bondPrices = getRandomNumberInArray(10, 1, 10000)
+    const bondPrices = [800, 900, 150, 900, 1001, 1200] - // написав власноруч масив для перевірки
+    document.write(`Згенерований масив - ${bondPrices}. <br> `)
+    const lastPriceMoreThanThousand = bondPrices.lastIndexOf(
+      (price) => price > 1000
+    )
+
+    document.write(`
+    Остання ціна, що більше за 1000 становить - ${lastPriceMoreThanThousand}.
+    `)
+
+
+  </script>
+
+</body>
+
+</html>

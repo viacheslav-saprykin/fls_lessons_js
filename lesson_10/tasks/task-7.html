@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #7</h1>
+  <p>
+    Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000).<br>
+    Визначати, чи усі ціни більше за 1000
+    <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+
+    function getRandomNumberInArray(countNumber, minNumber, maxNumber) {
+      let arrayNumbers = []
+      for (let i = 0; i < countNumber; i++) {
+        const numberRandom = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+        arrayNumbers.push(numberRandom)
+      }
+      return arrayNumbers
+    }
+
+    const bondPrices = getRandomNumberInArray(10, 1, 10000)
+    const bondPricesMoreThanThousand = bondPrices.every(
+      (price) => price > 1000
+    )
+    if (bondPricesMoreThanThousand === true) {
+      document.write(`
+      Так, всі ціни більші за 1000.
+      `)
+    }
+    else {
+      document.write(`
+      Ні,є ціни менші за 1000.
+      `)
+    }
+
+  </script>
+
+</body>
+
+</html>
