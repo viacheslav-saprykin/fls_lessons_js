@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Дано інформацію про прибуток К магазинів протягом тижня. Знайти:<br>
+    1. загальний прибуток кожного масиву за тиждень;<br>
+    2. загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);<br>
+    3. загальний прибуток за робочі дні<br>
+    4. загальний прибуток за вихідні дні<br>
+    5. максимальний прибуток за середу<br>
+    6. сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200<br>
+    7. відсортувати кожен тиждень за зростанням<br>
+    8. відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків<br>
+    9. упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).<br>
+    
+    <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+    let array = [
+      [11, 22, 33, 43, 55, 66, 77],
+      [21, 32, 43, 54, 65, 76, 87],
+      [31, 42, 53, 64, 75, 86, 97],
+      [41, 52, 63, 74, 85, 96, 14],
+      [51, 62, 73, 84, 95, 13, 274]
+    ];
+    // 1. загальний прибуток кожного масиву за тиждень;<br>
+    let resultOne = array.map((shopBigData) => 
+      shopBigData.reduce((prevSum, price) => prevSum + price)
+    )
+    document.write(`Задача #1 - ${resultOne}; <br>`);
+
+    // 2. загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);<br>
+    let resultTwo = []
+      for (let colIndex = 0; colIndex < array[0].length; colIndex++) {
+        let sum = 0
+        for (let rowIndex = 0; rowIndex < array.length; rowIndex++) {
+          sum += array[rowIndex][colIndex]
+        }
+        resultTwo.push(sum)
+      }
+    document.write(`Задача #2 - ${resultTwo}; <br>`);
+
+    // 3. загальний прибуток за робочі дні
+      let resultThree = 0
+      for (let r = 0; r < array.length; r++) {
+        for (let c = 0; c < 5; c++) {
+          resultThree += array[r][c]
+        }
+      }
+      document.write(`Задача #3 - ${resultThree}; <br>`);
+
+      // 4. загальний прибуток за вихідні дні
+      let resultFour = 0
+      for (let r = 0; r < array.length; r++) {
+        for (let c = 5; c < 7; c++) {
+          resultFour += array[r][c]
+        }
+      }
+      document.write(`Задача #4 - ${resultFour}; <br>`);
+
+      // 5. максимальний прибуток за середу
+      let resultFive = -Infinity
+      const wedIndex = 2
+      for (let rowIndex = 0; rowIndex < array.length; rowIndex++) {
+        if (array[rowIndex][wedIndex] > resultFive) resultFive = array[rowIndex][wedIndex]
+      }
+
+      document.write(`Задача #5 - ${resultFive}; <br>`);
+
+      // 6) сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200
+        let resultSix = []
+        for (let rowIndex = 0; rowIndex < array.length; rowIndex++) {
+          for (let colIndex = 5; colIndex < array[rowIndex].length; colIndex++) {
+            if (array[rowIndex][colIndex] > 200) resultSix.push(array[rowIndex][colIndex])
+          }
+        }
+
+        document.write(`Задача #6 - ${resultSix}; <br>`);
+
+      // 7. відсортувати кожен тиждень за зростанням
+      array.forEach((row) => row.sort((el1, el2) => el1 - el2))
+      document.write(`Задача #7 - ${array}; <br>`);
+
+      // 8) відсортувати кожен тиждень за спаданням
+      array.forEach((row) => row.sort((el2, el1) => el2 - el1))
+      document.write(`Задача #8 - ${array}; <br>`);
+
+      // 9. упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).<br>
+      let summArr = array.map((row) =>
+        row.reduce((prevSum, el) => prevSum + el)
+      )
+
+      for (let rowIndex = 0; rowIndex < array.length - 1; rowIndex++) {
+        let maxIndex = rowIndex
+        for (let i = rowIndex + 1; i < array.length; i++) {
+          if (summArr[maxIndex] < summArr[i]) maxIndex = i
+        }
+        if (maxIndex !== rowIndex) {
+          //---- поміняли місцями елеменнти у масиві максимальних
+          let temp = summArr[rowIndex]
+          summArr[rowIndex] = summArr[maxIndex]
+          summArr[maxIndex] = temp
+          //----  поміняли місцями відповідні рядки
+          let tempRow = array[rowIndex]
+          array[rowIndex] = array[maxIndex]
+          array[maxIndex] = tempRow
+        }
+      }
+      let resultNine = summArr.reduce((prevSum, el) => prevSum + el, 0)
+      document.write(`Задача #9 - ${resultNine}; <br>`);
+  </script>
+
+</body>
+
+</html>

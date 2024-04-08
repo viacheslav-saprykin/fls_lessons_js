@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Знайти суми елементів у вказаній області<br>
+    1.	номери рядків від 0 до половини, стовпці від 0 до половини<br>
+    2.  номери рядків від 0 до половини, стовпці від половини до кінця<br>
+    3.  номери рядків від половини до кінця, стовпці від 0 до половини<br>
+    4.  номери рядків від половини до кінця , стовпці від половини до кінця<br>
+    5.  Суму парних рядків<br>
+    6.  Суму непарних стовпців<br>
+    7.  У парних рядках – непарні стовпці, у непарних – парні.<br>
+    
+    <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+    let array = [
+      [11, 22, 33, 43, 55, 66, 77],
+      [21, 32, 43, 54, 65, 76, 87],
+      [31, 42, 53, 64, 75, 86, 97],
+      [41, 52, 63, 74, 85, 96, 14],
+      [51, 62, 73, 84, 95, 13, 24]
+    ];
+
+    function getSumInRange(
+      array,
+      startRowIndex,
+      endRowIndex,
+      startColIndex,
+      endColIndex,
+      rowStep = 1,
+      colStep = 1, checkFunc
+    ) {
+      let sum = 0
+      for (let rowIndex = startRowIndex; rowIndex <= endRowIndex; rowIndex+=rowStep) {
+        for (let colIndex = startColIndex; colIndex <= endColIndex; colIndex+=colStep) {
+          if(!checkFunc || checkFunc(rowIndex, colIndex))
+          sum += array[rowIndex][colIndex]
+        }
+      }
+      return sum
+    }
+
+    let halfRowsNumber = Math.floor(array.length / 2)
+    let lastRowIndex = array.length-1
+
+    let halfColsNumber = Math.floor(array[0].length / 2)
+    lastColIndex = array[0].length-1
+
+
+    // 1) Задача 1
+    let resultOne = getSumInRange(array, 0, halfRowsNumber, 0, halfColsNumber)
+    document.write(`Задача #1 - ${resultOne}; <br>`);
+
+    // 2) Задача 2
+    let resultTwo = getSumInRange(array, 0, halfRowsNumber, halfColsNumber+1, lastColIndex)
+    document.write(`Задача #2 - ${resultTwo}; <br>`);
+
+    // 3) Задача 3
+    let resultThree = getSumInRange(array, 0, halfRowsNumber+1, lastRowIndex, 0, halfColsNumber)
+    document.write(`Задача #3 - ${resultThree}; <br> `);
+
+    // 4) Задача 4
+    let resultFour = getSumInRange(array, halfRowsNumber+1, lastRowIndex, halfColsNumber+1, lastColIndex)
+    document.write(`Задача #4 - ${resultFour}; <br> `);
+
+    // 5) Задача 5
+    let resultFive = getSumInRange(array, 0, lastRowIndex, 0, lastColIndex, 2)
+    document.write(`Задача #5 - ${resultFive}; <br>`);
+
+    // 6) Задача 6
+    let resultSix = getSumInRange(array, 0, lastRowIndex, 1, lastColIndex, 1, 2)
+    document.write(`Задача #6 - ${resultSix}; <br>`);
+
+    // 7) Задача 7
+    let resultSeven = getSumInRange(array, 0, lastRowIndex, 0, lastColIndex, 1, 1,(rowIndex, colIndex) =>
+      (rowIndex % 2 === 0 && colIndex % 2 !== 0) ||
+      (rowIndex % 2 !== 0 && colIndex % 2 === 0)
+      )
+    document.write(`Задача #7 - ${resultSeven}; <br>`);
+
+  </script>
+
+</body>
+
+</html>
