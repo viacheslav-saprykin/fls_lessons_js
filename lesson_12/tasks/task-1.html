@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Дано масив 30 випадкових цілих чисел.
+    Підрахувати скільки було обмінів та порівнянь чисел під час сортування бульбашкою<br>
+    <br>
+    Відповідь:<br>
+  </p>
+
+  <script>
+    let arrThirty = [12, 45, 67, 21, 89, 34, 50, 29, 84, 60, 23, 78, 56, 98, 11, 43, 76, 39, 80, 22, 57, 94, 36, 71, 18, 49, 85, 33, 66, 27];
+    let swaps = 0;
+    let comparisons = 0;
+    let swapped;
+
+    do {
+      swapped = false;
+      for (let i = 1; i < arrThirty.length; i++) {
+        comparisons++;
+        if (arrThirty[i - 1] > arrThirty[i]) {
+          let temporary = arrThirty[i - 1];
+          arrThirty[i - 1] = arrThirty[i];
+          arrThirty[i] = temporary;
+          swapped = true;
+          swaps++;
+        }
+      }
+    } while (swapped);
+    document.write(`
+      Масив у порядку зростання - ${arrThirty}; <br>
+      Кількість обмінів - ${swaps}; <br>
+      Кількість порівнянь - ${comparisons}; <br>
+    `);
+  </script>
+
+</body>
+
+</html>
