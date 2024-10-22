@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Описати масив об’єктів – сайтів розроблених компанією з такими властивостями<br>
+    ----- Властивості ------<br>
+    - назва компанії на час розробки (назву періодично змінюють)<br>
+    - власник компанії<br>
+    - споснсори (масив спонсорів)<br>
+    + прізвище спонсора<br>
+    + ім’я спонсора<br>
+    + сума вкладень спонсора<br>
+    - рік випуску<br>
+    - вартість сайту<br>
+    <br>
+    <br>
+    Знайти:<br>
+    1. загальну вартість усіх сайтів<br>
+    2. кількість сайтів, що було зроблено між 2000 та 2009 рр.<br>
+    3. кількість сайтів, де сума спонсорських вкладень була більшою за 100000<br>
+    4. створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)<br>
+    5. знайти рік, коли прибуток був найбільшим<br>
+    6. упорядкувати список за спаданням прибутку<br>
+    7. Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000<br>
+    <br>
+    <br>
+    Відповідь: у console.log<br>
+  </p>
+
+  <script>
+    let webSites = [
+      {
+        nameCompany: 'Web Design Agency',
+        ownerCompany: 'Anderson Andrew',
+        sponsors: [
+          {
+            surname: 'Willson',
+            name: 'Andrew',
+            value: 5000,
+          },
+          {
+            surname: 'Potter',
+            name: 'Harry',
+            value: 7000,
+          }
+          
+        ],
+        yearManufacture: 2024,
+        websiteCost: 10000
+      },
+      {
+        nameCompany: 'Free people',
+        ownerCompany: 'David Guetta',
+        sponsors: [
+          {
+            surname: 'Lima',
+            name: 'Laris',
+            value: 4000,
+          },
+          {
+            surname: 'Victor',
+            name: 'Lompas',
+            value: 3000,
+          }
+          
+        ],
+        yearManufacture: 2023,
+        websiteCost: 20000
+      }
+    ]
+
+
+    let totalCost = webSites.reduce((sum, site) => sum + site.websiteCost, 0);
+
+    let sites2000to2009 = webSites.filter(site => site.yearManufacture >= 2000 && site.yearManufacture <= 2009).length;
+
+    let sitesWithBigSponsorship = webSites.filter(site => site.sponsors.reduce((sum, sponsor) => sum + sponsor.value, 0) > 100000).length;
+
+    let allSponsorList = webSites.flatMap(site => site.sponsors);
+
+    let mostProfitableYear = webSites.sort((a, b) => (b.websiteCost - b.sponsors.reduce((sum, sponsor) => sum + sponsor.value, 0)) - (a.websiteCost - a.sponsors.reduce((sum, sponsor) => sum + sponsor.value, 0)))[0].yearManufacture;
+
+    let sitesByProfit = webSites.sort((a, b) => (b.websiteCost - b.sponsors.reduce((sum, sponsor) => sum + sponsor.value, 0)) - (a.websiteCost - a.sponsors.reduce((sum, sponsor) => sum + sponsor.value, 0)));
+
+    let sitesCostUnder10000 = webSites.filter(site => site.websiteCost < 10000);
+    let sitesCostOver10000 = webSites.filter(site => site.websiteCost > 10000);
+
+
+    console.log(`
+      1. Загальна вартість усіх сайтів становить = ${totalCost}<br>
+      2. Кількість сайтів, що було зроблено між 2000 та 2009 рр. = ${sites2000to2009} <br>
+      3. кількість сайтів, де сума спонсорських вкладень була більшою за 100000 = ${sitesWithBigSponsorship} <br>
+      4. створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив) = ${allSponsorList} <br>
+      5. знайти рік, коли прибуток був найбільшим = ${mostProfitableYear} <br>
+      6. упорядкувати список за спаданням прибутку = ${sitesByProfit} <br>
+      7. Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000 = ${sitesCostUnder10000} та ${sitesCostOver10000}<br>
+    `)
+  </script>
+
+</body>
+
+</html>
