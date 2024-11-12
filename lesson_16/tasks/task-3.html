@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #3</h1>
+  <p>
+    Створити клас TBankomat, який моделює роботу банкомата. Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної сум, які може видати банкомат, та метод зняття деякої суми.
+  </p>
+
+
+  <script>
+class TBankomat {
+  constructor(count5, count10, count20, count50, count100, count200) {
+    this.count5 = count5;
+    this.count10 = count10;
+    this.count20 = count20;
+    this.count50 = count50;
+    this.count100 = count100;
+    this.count200 = count200;
+  }
+
+  // Метод для обчислення максимальної суми, яку може видати банкомат
+  getMaxAmount() {
+    return (
+      this.count5 * 5 +
+      this.count10 * 10 +
+      this.count20 * 20 +
+      this.count50 * 50 +
+      this.count100 * 100 +
+      this.count200 * 200
+    );
+  }
+
+  // Метод для обчислення мінімальної суми, яку може видати банкомат
+  getMinAmount() {
+    if (this.count5 > 0) return 5;
+    if (this.count10 > 0) return 10;
+    if (this.count20 > 0) return 20;
+    if (this.count50 > 0) return 50;
+    if (this.count100 > 0) return 100;
+    if (this.count200 > 0) return 200;
+    return 0; // якщо немає жодної купюри
+  }
+
+  // Метод для зняття суми
+  withdraw(amount) {
+    const banknotes = [
+      { denomination: 200, count: this.count200 },
+      { denomination: 100, count: this.count100 },
+      { denomination: 50, count: this.count50 },
+      { denomination: 20, count: this.count20 },
+      { denomination: 10, count: this.count10 },
+      { denomination: 5, count: this.count5 },
+    ];
+
+    let remainingAmount = amount;
+    const withdrawal = {};
+
+    // Шукаємо найбільші можливі купюри для видачі суми
+    for (let note of banknotes) {
+      if (remainingAmount <= 0) break;
+      const neededNotes = Math.min(
+        Math.floor(remainingAmount / note.denomination),
+        note.count
+      );
+      if (neededNotes > 0) {
+        withdrawal[note.denomination] = neededNotes;
+        remainingAmount -= neededNotes * note.denomination;
+      }
+    }
+
+    // Якщо залишок суми не був вичерпаний, повертаємо помилку
+    if (remainingAmount > 0) {
+      return `Неможливо видати суму ${amount} з наявними купюрами.`;
+    } else {
+      // Оновлюємо кількість купюр у банкоматі
+      for (let denomination in withdrawal) {
+        this[`count${denomination}`] -= withdrawal[denomination];
+      }
+      return `Видано ${amount} грн за номіналами: ` + JSON.stringify(withdrawal);
+    }
+  }
+
+  // Метод toString для виведення інформації про банкноти
+  toString() {
+    return `Купюри у банкоматі: 
+    5 грн: ${this.count5} шт, 
+    10 грн: ${this.count10} шт, 
+    20 грн: ${this.count20} шт, 
+    50 грн: ${this.count50} шт, 
+    100 грн: ${this.count100} шт, 
+    200 грн: ${this.count200} шт`;
+  }
+}
+
+// Тестування
+const atm = new TBankomat(10, 5, 8, 3, 2, 1);
+
+document.write("Максимальна сума: " + atm.getMaxAmount() + "<br>");
+document.write("Мінімальна сума: " + atm.getMinAmount() + "<br>");
+
+document.write(atm.toString() + "<br>");
+document.write(atm.withdraw(580) + "<br>");
+document.write(atm.toString());
+
+  </script>
+
+</body>
+
+</html>
