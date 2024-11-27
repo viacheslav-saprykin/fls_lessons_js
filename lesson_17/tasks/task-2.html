@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Створити службове авто (водій, марка, номер). Створити клас таким чином, щоб можна було створити тільки один
+    екземпляр цього класу.
+  </p>
+
+
+  <script>
+    class ServiceCar {
+      // Статичне поле для зберігання єдиного екземпляра
+      static instance = null;
+
+      constructor(driver, brand, number) {
+        if (ServiceCar.instance) {
+          throw new Error("Екземпляр цього класу вже створений. Використовуйте ServiceCar.getInstance().");
+        }
+
+        // Ініціалізація властивостей
+        this.driver = driver;
+        this.brand = brand;
+        this.number = number;
+
+        // Зберігаємо єдиний екземпляр
+        ServiceCar.instance = this;
+      }
+
+      // Статичний метод для отримання єдиного екземпляра
+      static getInstance(driver = null, brand = null, number = null) {
+        if (!ServiceCar.instance) {
+          ServiceCar.instance = new ServiceCar(driver, brand, number);
+        }
+        return ServiceCar.instance;
+      }
+    }
+
+    // Створення службового авто
+    try {
+      const car1 = ServiceCar.getInstance("Іван Петренко", "Toyota", "AA0001AA");
+      console.log(car1); // { driver: 'Іван Петренко', brand: 'Toyota', number: 'AA0001AA' }
+
+      // Спроба створити новий екземпляр
+      const car2 = new ServiceCar("Петро Іваненко", "Honda", "BC0001CC"); // Викине помилку
+    } catch (error) {
+      console.error(error.message); // "Екземпляр цього класу вже створений. Використовуйте ServiceCar.getInstance()."
+    }
+
+    // Використання існуючого екземпляра
+    const car3 = ServiceCar.getInstance();
+    console.log(car3); // { driver: 'Іван Петров', brand: 'Toyota', number: 'AA0001AA' }
+
+  </script>
+
+</body>
+
+</html>
