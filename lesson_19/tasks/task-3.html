@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<style>
+  .green {
+    color: green;
+  }
+
+  .red {
+    color: red;
+  }
+</style>
+
+<body>
+  <h1>Задача #3</h1>
+  <p>
+    Дано 5 випадковим чином згенерованих нумерованих списків з рандомними числами. При натисненні на кнопку нумеровані списки з парною кількістю елементів зафарбувати у зелений колір, інші у червоний.
+  </p>
+<br>
+  <button id="colorLists">Зафарбувати списки</button>
+<br>
+  <!-- Контейнер для списків -->
+  <div id="listsContainer"></div>
+
+  <script>
+    // Отримуємо контейнер для списків
+    const listsContainer = document.getElementById('listsContainer');
+
+    // Функція для генерації випадкового числа в діапазоні
+    function getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Генеруємо 5 випадкових нумерованих списків
+    for (let i = 0; i < 5; i++) {
+      const list = document.createElement('ol'); // Створюємо список
+      const numItems = getRandomNumber(1, 10); // Випадкова кількість елементів (1-10)
+
+      // Генеруємо випадкові числа для елементів списку
+      for (let j = 0; j < numItems; j++) {
+        const listItem = document.createElement('li');
+        listItem.textContent = getRandomNumber(1, 100); // Випадкове число (1-100)
+        list.appendChild(listItem); // Додаємо елемент у список
+      }
+
+      listsContainer.appendChild(list); // Додаємо список у контейнер
+    }
+
+    // Додаємо обробник події для кнопки
+    const colorListsButton = document.getElementById('colorLists');
+    colorListsButton.addEventListener('click', () => {
+      // Отримуємо всі списки
+      const lists = listsContainer.querySelectorAll('ol');
+
+      // Перебираємо кожен список
+      lists.forEach((list) => {
+        const itemCount = list.children.length; // Кількість елементів у списку
+
+        if (itemCount % 2 === 0) {
+          // Якщо парна кількість елементів
+          list.classList.remove('red'); // Забираємо червоний колір, якщо був
+          list.classList.add('green'); // Додаємо зелений колір
+        } else {
+          // Якщо непарна кількість елементів
+          list.classList.remove('green'); // Забираємо зелений колір, якщо був
+          list.classList.add('red'); // Додаємо червоний колір
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

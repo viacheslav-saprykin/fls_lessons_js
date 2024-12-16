@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Дано 5 елементів input. При введенні значення у якийсь із них необхідно автоматично заповнювати інші (усі попередні
+    у спадному порядку (кожен попередній має значення на 1 менше за наступний), усі наступні на 1 більше (кожен
+    наступний на 1 більше за попереднього)).
+  </p>
+
+  <!-- Додаємо 5 input -->
+  <input type="number" class="number-input" />
+  <input type="number" class="number-input" />
+  <input type="number" class="number-input" />
+  <input type="number" class="number-input" />
+  <input type="number" class="number-input" />
+
+  <script>
+    const inputs = document.querySelectorAll('.number-input');
+
+    inputs.forEach((input, index) => {
+      input.addEventListener('input', () => {
+        const currentValue = parseInt(input.value, 10);
+
+        if (!isNaN(currentValue)) {
+          for (let i = index - 1; i >= 0; i--) {
+            inputs[i].value = currentValue - (index - i);
+          }
+
+          for (let i = index + 1; i < inputs.length; i++) {
+            inputs[i].value = currentValue + (i - index);
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
