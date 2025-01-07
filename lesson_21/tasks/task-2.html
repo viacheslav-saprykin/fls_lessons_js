@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+  <p>Створити клас Bank, у якому зберігається масив клієнтів. Виконати такі операції <br>
+    ● Вивести всіх простих клієнтів; <br>
+    ● Вивести всіх клієнтів GoldenClient; <br>
+    ● Знайти сумарну кількість грошей на рахунку; <br>
+    <br>
+  </p>
+</head>
+
+<body>
+  <script>
+
+    // Базовий клас Client
+    class Client {
+      constructor(id, fullName, balance) {
+        this.id = id;
+        this.fullName = fullName;
+        this.balance = balance;
+      }
+
+      // Додавання грошей
+      addMoney(amount) {
+        this.balance += amount;
+      }
+
+      // Зняття грошей
+      withdrawMoney(amount) {
+        if (this.balance >= amount) {
+          this.balance -= amount;
+        } else {
+          console.log(`Недостатньо коштів на рахунку клієнта ${this.fullName}`);
+        }
+      }
+
+      // Повертає інформацію про клієнта
+      toString() {
+        return `ID: ${this.id}, ПІБ: ${this.fullName}, Баланс: ${this.balance} грн`;
+      }
+    }
+
+    // Похідний клас GoldenClient
+    class GoldenClient extends Client {
+      constructor(id, fullName, balance, creditLimit, creditInterestRate) {
+        super(id, fullName, balance); // Викликаємо конструктор базового класу
+        this.creditLimit = creditLimit; // Ліміт кредитних коштів
+        this.creditInterestRate = creditInterestRate; // Відсоток за кредит
+      }
+
+      // Перевизначення методу зняття грошей для GoldenClient
+      withdrawMoney(amount) {
+        const totalAvailable = this.balance + this.creditLimit; // Загальна доступна сума
+        if (amount <= totalAvailable) {
+          if (amount <= this.balance) {
+            this.balance -= amount; // Знімаємо з балансу
+          } else {
+            const creditUsed = amount - this.balance; // Скільки взято в кредит
+            this.balance = 0;
+            this.creditLimit -= creditUsed;
+          }
+        } else {
+          console.log(`Недостатньо коштів і кредитного ліміту для клієнта ${this.fullName}`);
+        }
+      }
+
+      // Розрахунок пені за використання кредитних коштів
+      calculatePenalty() {
+        const usedCredit = this.creditLimit < 0 ? Math.abs(this.creditLimit) : 0;
+        return (usedCredit * this.creditInterestRate) / 100;
+      }
+
+      // Повертає інформацію про GoldenClient
+      toString() {
+        return (
+          `${super.toString()}, Кредитний ліміт: ${this.creditLimit} грн, ` +
+          `Відсоток за кредит: ${this.creditInterestRate}%`
+        );
+      }
+    }
+
+    // Клас Bank
+    class Bank {
+      constructor() {
+        this.clients = []; // Масив для зберігання клієнтів
+      }
+
+      // Додавання клієнта в банк
+      addClient(client) {
+        if (client instanceof Client || client instanceof GoldenClient) {
+          this.clients.push(client);
+          console.log(`Клієнт ${client.fullName} доданий до банку.`);
+        } else {
+          console.log("Об'єкт не є клієнтом.");
+        }
+      }
+
+      // Виведення всіх простих клієнтів
+      getSimpleClients() {
+        return this.clients.filter(client => client instanceof Client && !(client instanceof GoldenClient));
+      }
+
+      // Виведення всіх клієнтів GoldenClient
+      getGoldenClients() {
+        return this.clients.filter(client => client instanceof GoldenClient);
+      }
+
+      // Знаходження сумарної кількості грошей на рахунках
+      getTotalBalance() {
+        return this.clients.reduce((total, client) => total + client.balance, 0);
+      }
+    }
+
+    // Приклад використання
+    const bank = new Bank();
+
+    // Створюємо клієнтів
+    const client1 = new Client(1, "Тарас Шевченко", 5000);
+    const client2 = new Client(2, "Марія Приймаченко", 3000);
+    const goldenClient1 = new GoldenClient(3, "Петро Сидоренко", 10000, 5000, 5);
+    const goldenClient2 = new GoldenClient(4, "Оксана Гриценко", 2000, 8000, 7);
+
+    // Додаємо клієнтів у банк
+    bank.addClient(client1);
+    bank.addClient(client2);
+    bank.addClient(goldenClient1);
+    bank.addClient(goldenClient2);
+
+    // Виводимо простих клієнтів
+    console.log("Прості клієнти:");
+    bank.getSimpleClients().forEach(client => console.log(client.toString()));
+
+    // Виводимо клієнтів GoldenClient
+    console.log("\nGolden клієнти:");
+    bank.getGoldenClients().forEach(client => console.log(client.toString()));
+
+    // Рахуємо загальну суму грошей на рахунках
+    console.log(`\nЗагальна сума грошей на рахунках: ${bank.getTotalBalance()} грн`);
+
+
+  </script>
+</body>
+
+</html>
