@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+    <br>
+    Відповідь:
+    <br>
+  </p>
+
+  <script>
+    function calculateYear(day, month, year, monthsToAdd) {
+      let newMonth = month - 1 + monthsToAdd;
+      let newYear = year + Math.floor(newMonth / 12);
+      return newYear;
+    }
+
+    let calcSomeMonths = calculateYear(24, 4, 2024, 20);
+
+
+    document.write(`
+      1. Якщо до поточної дати додати 20 міс., то ми отримаємо = ${calcSomeMonths} р.<br>
+    `)
+  </script>
+
+</body>
+
+</html>

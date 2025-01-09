@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #5</h1>
+  <p>
+    Створити окремі функції, які переводять: <br>
+    1. Сантиметри у дюйми; <br>
+    2. Кілограми у фунти; <br>
+    3. Кілометри у милі. <br>
+    <br>
+    Відповідь: Створив 3 окремі функції у скрипті цього коду. Протестовано та виведено на сторінку з input значенням 10.
+  </p>
+
+  <script>
+    // 1. Функція сантиметри у дюйми
+    function cmToInches(cm) {
+      return cm * 0.39;
+    }
+
+    let testCmToInches = cmToInches(10);
+    document.write(`${testCmToInches.toFixed(2)}<br>`)
+
+    // 2. Функція кілограми у фунти
+    function kgToPounds(kg) {
+      return kg * 2.2;
+    }
+
+    let testKgToPounds= kgToPounds(10);
+    document.write(`${testKgToPounds.toFixed(2)}<br>`)
+
+    // 3. Функція кілометри у милі
+    function kmToMiles(km) {
+      return km * 0.62;
+    }
+
+    let testKmToMiles = kmToMiles(10);
+    document.write(`${testKmToMiles.toFixed(2)}<br>`)
+
+  </script>
+
+</body>
+
+</html>

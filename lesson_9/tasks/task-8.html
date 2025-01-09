@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #8</h1>
+  <p>
+    Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»<br>
+    Відповідь:
+  </p>
+
+  <script>
+    let arrayPlates = ['AA0001AA', 'AK4709XE', 'KA4400KI', 'BK0983MI', 'AO0001OA', 'AA0095KB']
+    let firstLetterOfPlates = arrayPlates.filter(plate => plate[0] === 'A')
+    document.write(` З переліку номерних знаків ${arrayPlates}, виокремлено ті, які починаються на А - ${firstLetterOfPlates}.`)
+  </script>
+
+</body>
+
+</html>

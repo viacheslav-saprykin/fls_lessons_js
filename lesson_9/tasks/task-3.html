@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #3</h1>
+  <p>
+    Користувач вводить кількість елементів. Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками. <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+    let numFromUser = parseInt(prompt('Введіть кількість елементів'))
+    let amountElements = new Array(numFromUser)
+    
+    amountElements.fill(1, 0, 5)
+    amountElements.fill(7, 5)
+    document.write(`Створений користувачем масив заповнений для перших 5 елементів заповнені одиницями, а інші до кінця масиву заповнені сімками - ${amountElements}; <br>`)
+  </script>
+
+</body>
+
+</html>

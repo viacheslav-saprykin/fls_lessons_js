@@ -128,7 +128,11 @@ h1 {
           justify-content: center;
   font-size: 1.25rem;
   font-weight: 900;
+<<<<<<< HEAD
   margin-bottom: 1.875rem;
+=======
+  margin-bottom: 7rem;
+>>>>>>> develop
 }
 
 h2 {
@@ -198,4 +202,55 @@ p {
 
 .task5-1 {
   list-style: circle;
+<<<<<<< HEAD
+=======
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+table tr:nth-child(even) {
+  background-color: #eee;
+}
+
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table th {
+  background-color: black;
+  color: white;
+}
+ol {
+  display: flex; /* Використовуємо гнучке розташування елементів */
+  flex-wrap: wrap; /* Дозволяємо перенос елементів на новий рядок */
+  gap: 1rem; /* Відстань між елементами як по горизонталі, так і по вертикалі */
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Прибираємо стандартні маркери списку */
+  justify-content: flex-start; /* Вирівнюємо елементи по лівому краю */
+}
+
+li {
+  flex: 1 1 calc(8% - 1rem); /* Задаємо ширину елементів (20% від контейнера мінус відступ) */
+  box-sizing: border-box; /* Урахування padding і border у ширині */
+  text-align: center; /* Центруємо текст усередині елемента */
+  align-content: flex-start;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0056a4;
+>>>>>>> develop
 }

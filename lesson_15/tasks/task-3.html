@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #3</h1>
+  <p>
+    Задача 3. Розробити клас MultChecker для перевірки таблиці множення <br>
+    Поля - число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7), кількість правильних відповідей,
+    кількість неправильних відповідей <br>
+    Методи - генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване), перевірка
+    правильності вказаної відповіді, render - виведення інформації про тестування на екран
+
+  </p>
+
+  <script>
+    class MultChecker {
+      constructor(number) {
+        this.number = number;              // Число, яке перевіряємо (наприклад, таблиця множення на 7)
+        this.correctAnswers = 0;           // Кількість правильних відповідей
+        this.incorrectAnswers = 0;         // Кількість неправильних відповідей
+        this.currentQuestion = null;       // Поточний приклад для перевірки
+      }
+
+      // Метод для генерації прикладу
+      generateQuestion() {
+        const randomMultiplier = Math.floor(Math.random() * 10) + 1; // Генеруємо випадкове число від 1 до 10
+        this.currentQuestion = {
+          multiplier: randomMultiplier,
+          correctAnswer: this.number * randomMultiplier
+        };
+        console.log(`Скільки буде ${this.number} * ${randomMultiplier}?`);
+        return this.currentQuestion;
+      }
+
+      // Метод для перевірки правильності відповіді
+      checkAnswer(userAnswer) {
+        if (this.currentQuestion === null) {
+          console.log("Будь ласка, спершу згенеруйте приклад!");
+          return;
+        }
+
+        if (userAnswer === this.currentQuestion.correctAnswer) {
+          console.log("Правильно!");
+          this.correctAnswers++;
+        } else {
+          console.log("Неправильно!");
+          this.incorrectAnswers++;
+        }
+        // Скидаємо поточне питання
+        this.currentQuestion = null;
+      }
+
+      // Метод для виведення результатів тестування
+      render() {
+        console.log(`Перевірка таблиці множення на ${this.number}`);
+        console.log(`Правильних відповідей: ${this.correctAnswers}`);
+        console.log(`Неправильних відповідей: ${this.incorrectAnswers}`);
+      }
+    }
+
+    // Приклад використання
+    const checker = new MultChecker(7);   // Створюємо об'єкт для перевірки таблиці множення на 7
+    checker.generateQuestion();           // Генеруємо приклад
+    checker.checkAnswer(21);              // Перевіряємо відповідь
+    checker.render();                     // Виводимо результати тестування
+    checker.generateQuestion();           // Генеруємо ще один приклад
+    checker.checkAnswer(35);              // Перевіряємо відповідь
+    checker.render();                     // Виводимо результати тестування
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #6</h1>
+  <p>
+    Дано масив імен.
+    Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я довжиною 5 символів і під яким
+    індексом.<br>
+    <br>
+    Відповідь:<br>
+  </p>
+
+  <script>
+    let names = ['Anna', 'Bogdan', 'Cher', 'David', 'Olga', 'Victor'];
+    names.sort();
+
+    function binarySearch(names, search) {
+      let start = 0;
+      let end = names.length - 1;
+
+      while (start <= end) {
+        let middle = Math.floor((start + end) / 2);
+
+        if (names[middle] === search) {
+          return middle;
+        } else if (names[middle] < search) {
+          start = middle + 1;
+        } else {
+          end = middle - 1;
+        }
+      }
+
+      return -1;
+    }
+
+
+    for (let i = 0; i < names.length; i++) {
+      if (names[i].length === 5) {
+        let index = binarySearch(names, names[i]);
+
+        if (index !== -1) {
+          document.write(`Ім'я '${names[i]}' має більше 5 символів і його знайдено під індексом ${index}`);
+          break;
+        }
+      }
+    }
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Задача 2. Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:<br>
+    ● номери днів, протягом яких кількість відвідувачів була меншою за 20;<br>
+    ● номери днів, коли кількість відвідувачів була мінімальною;<br>
+    ● номери днів, коли кількість відвідувачів була максимальною;<br>
+    ● загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.<br>
+    <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+
+
+    function isVisitorsLessThanTwenty(visitorsList) {
+      let countVisitorsLessThanTwenty = []
+      for (let i = 0; i < visitorsList.length; i++) {
+        if (visitorsList[i] < 20)
+          countVisitorsLessThanTwenty.push(i + 1);
+      }
+
+      return countVisitorsLessThanTwenty
+    }
+
+    function isMinVisitors(visitorsList) {
+      let minVisitors = visitorsList[0]
+      let minVisitorsWeek = 0
+
+      for (let j = 1; j < visitorsList.length; j++) {
+        if (visitorsList[j] < minVisitors) {
+          minVisitors = visitorsList[j];
+          minVisitorsWeek = j;
+        }
+      }
+
+      return minVisitorsWeek + 1;
+    }
+
+    function isMaxVisitors(visitorsList) {
+      let maxVisitors = visitorsList[0]
+      let maxVisitorsWeek = 0
+
+      for (let k = 1; k < visitorsList.length; k++) {
+        if (visitorsList[k] > maxVisitors) {
+          maxVisitors = visitorsList[k];
+          maxVisitorsWeek = k;
+        }
+      }
+
+      return maxVisitorsWeek + 1;
+    }
+
+    function isClientsBusinessDays(visitorsList) {
+      let countClientsBusinessDays = 0
+
+      for (let l = 0; l < 5; l++) {
+        countClientsBusinessDays += visitorsList[l];
+      }
+      return countClientsBusinessDays
+    }
+
+    function isClientsWeekends(visitorsList) {
+      let countClientsWeekends = 0
+
+      for (let m = 5; m < 7; m++) {
+        countClientsWeekends += visitorsList[m];
+      }
+      return countClientsWeekends
+    }
+
+    let visitorsPerWeek = [10, 20, 30, 40, 50, 60, 70]
+
+    let numDaysVisitorsLessThan20 = isVisitorsLessThanTwenty(visitorsPerWeek)
+    let numDaysVisitorsMin = isMinVisitors(visitorsPerWeek)
+    let numDaysVisitorsMax = isMaxVisitors(visitorsPerWeek)
+    let countVisitorsBusinessDays = isClientsBusinessDays(visitorsPerWeek)
+    let countVisitorsWeekends = isClientsWeekends(visitorsPerWeek)
+
+    document.write(`
+      ● номери днів, протягом яких кількість відвідувачів була меншою за 20  - ${numDaysVisitorsLessThan20};<br>
+      ● день тижня, коли кількість відвідувачів була мінімальною - ${numDaysVisitorsMin};<br>
+      ● день тижня, коли кількість відвідувачів була максимальною - ${numDaysVisitorsMax};<br>
+      ● загальну кількість клієнтів у робочі дні - ${countVisitorsBusinessDays};<br>
+      ● загальна кількість клієнтів на вихідних - ${countVisitorsWeekends}.<br>
+    `)
+
+  </script>
+
+</body>
+
+</html>

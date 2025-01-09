@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі. 
+  </p>
+
+
+  <script>
+class TMoney {
+  constructor(initialSum, initialRate) {
+    this.sum = initialSum;
+    this.rate = initialRate;
+  }
+
+  addInHryvnia(amountInHryvnia) {
+    const dollars = amountInHryvnia / this.rate;
+    this.sum += dollars;
+  }
+
+  subtractInHryvnia(amountInHryvnia) {
+    const dollars = amountInHryvnia / this.rate;
+    this.sum -= dollars;
+  }
+
+  findRateForExtra100Hryvnia() {
+    return (this.sum * this.rate + 100) / this.sum;
+  }
+
+  toString() {
+    return `<br> Сума в доларах: ${this.sum}, Курс: ${this.rate}`;
+  }
+}
+
+const sum1 = new TMoney(1, 42);
+
+// Використання методів
+sum1.addInHryvnia(420);       // Додаємо 420 грн
+sum1.subtractInHryvnia(210);   // Віднімаємо 210 грн
+const newRate = sum1.findRateForExtra100Hryvnia(); // Отримуємо курс для додаткових 100 грн
+
+// Виведення результатів
+document.write(sum1.toString());   // Виводимо суму після додавання та віднімання
+document.write(`<br> Новий курс для додаткових 100 грн: ${newRate}`);
+
+  </script>
+
+</body>
+
+</html>

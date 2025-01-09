@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
+  </p>
+
+
+  <script>
+    class ShootingRange {
+      constructor(size) {
+        // Створюємо масив для поля з зайцями, заповнюючи його випадковими 0 та 1
+        this.field = Array.from({ length: size }, () =>
+          Array.from({ length: size }, () => Math.round(Math.random()))
+        );
+      }
+
+      // Метод для відображення ігрового поля в консолі
+      displayField() {
+        console.log("Ігрове поле:");
+        this.field.forEach(row => console.log(row.map(cell => (cell === 1 ? "🐰" : "⬜")).join(" ")));
+      }
+
+      // Метод для пострілу
+      shoot(x, y) {
+        if (x < 0 || y < 0 || x >= this.field.length || y >= this.field[0].length) {
+          console.log("Невірна позиція для пострілу!");
+          return;
+        }
+        if (this.field[x][y] === 1) {
+          console.log("Попадання! Заєць уражений 🐰");
+          this.field[x][y] = 0; // Заєць уражений
+        } else {
+          console.log("Промах! На цій позиції немає зайця ⬜");
+        }
+      }
+    }
+
+    // Тестовий приклад
+    const shootingRange = new ShootingRange(6); // Створюємо тир розміром 5х5
+    shootingRange.displayField(); // Відображаємо ігрове поле
+    shootingRange.shoot(4, 1); // Робимо постріл у позицію (4, 1)
+    shootingRange.displayField(); // Відображаємо поле після пострілу
+  </script>
+
+</body>
+
+</html>

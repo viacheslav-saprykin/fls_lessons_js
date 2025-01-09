@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #4</h1>
+  <p>
+    Дано масив елементів. Вивести на екран елементи, що більші за 100<br>
+    Відповідь:
+  </p>
+
+  <script>
+    // Рішення за допомогою звичайного циклу for
+
+    /* 
+    let arrayElements = [101, 102, 103, 5, 10, 45, 756, 452, 4, 1, 5, 2, 7, 9]
+    let result = []
+    for (let i = 0; i < arrayElements.length; i++) {
+      if (arrayElements[i] > 100)
+        result.push(arrayElements[i])
+    }
+    document.write(`Елементи, що більші за 100 - ${result}`) 
+    */
+
+    // Рішення за допомогою циклу for of
+
+    // let arrayElements = [101, 102, 103, 5, 10, 45, 756, 452, 4, 1, 5, 2, 7, 9]
+    // let result = []
+    // for (let element of arrayElements) {
+    //   if (element > 100)
+    //     result.push(element)
+    // }
+    // document.write(`Елементи, що більші за 100 - ${result}.`) 
+
+    let arrayElements = [101, 102, 103, 5, 10, 45, 756, 452, 4, 1, 5, 2, 7, 9]
+    let result = []
+    for (let element of arrayElements) {
+      if (element > 100)
+        result.push(element)
+    }
+    document.write(`Елементи, що більші за 100 - ${result}`)
+  </script>
+
+</body>
+
+</html>

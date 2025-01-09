@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+
+  <style>
+    .red {
+      color: red;
+    }
+    .line {
+      cursor: pointer;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Дано 10 рядків тексту «Hello!» у окремих div. При кліку на якийсь із них усі наступні повинні бути зафарбовані у червоний колір.
+  </p>
+  <br>
+
+  <div class="line">Hello!</div>
+  <div class="line">Hello!</div>
+  <div class="line">Hello!</div>
+  <div class="line">Hello!</div>
+  <div class="line">Hello!</div>
+  <div class="line">Hello!</div>
+  <div class="line">Hello!</div>
+  <div class="line">Hello!</div>
+  <div class="line">Hello!</div>
+  <div class="line">Hello!</div>
+
+<script>
+    // Знаходимо всі div із класом "line"
+    const divs = document.querySelectorAll('.line');
+
+    // Для кожного div додаємо обробник події
+    divs.forEach((div, index) => {
+      div.addEventListener('click', () => {
+        // Цикл для всіх div, які йдуть після натиснутого
+        for (let i = index + 1; i < divs.length; i++) {
+          divs[i].classList.add('red'); // Додаємо клас red
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

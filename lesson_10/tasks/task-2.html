@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000).<br>
+    Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+    <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+
+    function getRandomNumberInArray(countNumber, minNumber, maxNumber) {
+      let arrayNumbers = []
+      for (let i = 0; i < countNumber; i++) {
+        const numberRandom = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+        arrayNumbers.push(numberRandom)
+      }
+      return arrayNumbers
+    }
+
+    const bondPrices = getRandomNumberInArray(10, 1, 10000)
+    // const bondPrices = [800, 900, 150, 900, 1001, 1200]// написав власноруч масив для перевірки
+    const pricesMoreThanThousand = bondPrices.filter(
+      price => price > 1000
+    );
+
+    document.write(`
+      Згенерований масив - ${bondPrices}. <br> 
+      Новий масив, у якому є номери тільки тих, що більші за 1000 грн - ${pricesMoreThanThousand}. <br>
+    `)
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #2</h1>
+  <p>
+    Задача 2. Створити об’єкт «Авто». Поля(властивості) - марка, розмір бака, кількість наявних літрів, кількість місць,
+    кількість пасажирів. <br>
+    Методи (дії) - заправка на вказану кількість літрів, виведення кількості пасажирів, додавання пасажирів, висадка
+    пасажирів.
+  </p>
+
+  <script>
+    class Car {
+      constructor(brand, tankSize, seats) {
+        this.brand = brand;              // Марка автомобіля
+        this.tankSize = tankSize;        // Розмір бака (максимальна кількість літрів)
+        this.fuel = 0;                   // Кількість наявних літрів (початково порожній бак)
+        this.seats = seats;              // Кількість місць для пасажирів
+        this.passengers = 0;             // Кількість пасажирів (початково без пасажирів)
+      }
+
+      // Метод для заправки авто на вказану кількість літрів
+      refuel(liters) {
+        if (liters < 0) {
+          console.log("Неможливо заправити на від'ємну кількість літрів.");
+          return;
+        }
+        const fuelToAdd = Math.min(liters, this.tankSize - this.fuel);
+        this.fuel += fuelToAdd;
+        console.log(`Авто заправлено на ${fuelToAdd} л. Поточна кількість літрів: ${this.fuel}`);
+      }
+
+      // Метод для відображення кількості пасажирів
+      displayPassengers() {
+        console.log(`Кількість пасажирів: ${this.passengers}`);
+      }
+
+      // Метод для додавання пасажирів
+      addPassengers(count) {
+        if (count < 0) {
+          console.log("Неможливо додати від'ємну кількість пасажирів.");
+          return;
+        }
+        const seatsAvailable = this.seats - this.passengers;
+        const passengersToAdd = Math.min(count, seatsAvailable);
+        this.passengers += passengersToAdd;
+        console.log(`Додано ${passengersToAdd} пасажирів. Поточна кількість пасажирів: ${this.passengers}`);
+      }
+
+      // Метод для висадки пасажирів
+      removePassengers(count) {
+        if (count < 0) {
+          console.log("Неможливо висадити від'ємну кількість пасажирів.");
+          return;
+        }
+        const passengersToRemove = Math.min(count, this.passengers);
+        this.passengers -= passengersToRemove;
+        console.log(`Висаджено ${passengersToRemove} пасажирів. Поточна кількість пасажирів: ${this.passengers}`);
+      }
+    }
+
+    // Приклад використання
+    const car = new Car("Toyota", 50, 5); // Створюємо авто марки Toyota з баком на 50 л і 5 місцями
+    car.refuel(20);               // Заправляємо авто на 20 літрів
+    car.displayPassengers();       // Виводимо кількість пасажирів
+    car.addPassengers(3);          // Додаємо 3 пасажирів
+    car.removePassengers(1);       // Висаджуємо 1 пасажира
+    car.refuel(40);                // Спробуємо заправити ще на 40 літрів
+
+  </script>
+
+</body>
+
+</html>

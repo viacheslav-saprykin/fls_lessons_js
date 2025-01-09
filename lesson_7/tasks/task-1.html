@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Створити функцію, яка за номером місяця повертає його назву. <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+    function getWhichMonth(numberOfTheMonth) {
+      let result
+      switch (numberOfTheMonth) {
+        case 1:
+          result = `Місяць #${numberOfTheMonth} - це січень.`
+          break;
+        case 2:
+          result = `Місяць #${numberOfTheMonth} - це лютий.`
+          break;
+        case 3:
+          result = `Місяць #${numberOfTheMonth} - це березень.`
+          break
+        case 4:
+          result = `Місяць #${numberOfTheMonth} - це квітень.`
+          break
+        case 5:
+          result = `Місяць #${numberOfTheMonth} - це травень.`
+          break
+        case 6:
+          result = `Місяць #${numberOfTheMonth} - це червень.`
+          break
+        case 7:
+          result = `Місяць #${numberOfTheMonth} - це липень.`
+          break
+        case 8:
+          result = `Місяць #${numberOfTheMonth} - це серпень.`
+          break
+        case 9:
+          result = `Місяць #${numberOfTheMonth} - це вересень.`
+          break
+        case 10:
+          result = `Місяць #${numberOfTheMonth} - це жовтень.`
+          break
+        case 11:
+          result = `Місяць #${numberOfTheMonth} - це листопад.`
+          break
+        case 12:
+          result = `Місяць #${numberOfTheMonth} - це грудень.`
+          break
+
+        default: {
+          result = `Сталась помилка. Будь-ласка, введіть номер місяця від 1 до 12.`
+        }
+      }
+
+      return result
+
+    }
+
+    let testGetWhichMonth = getWhichMonth(
+      parseInt(prompt('Введіть номер місяця від 1 до 12')),
+    );
+
+    document.write(testGetWhichMonth);
+
+  </script>
+
+</body>
+
+</html>

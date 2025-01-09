@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+  <p>
+    Задача 6. Дано рядок тексту, вивести усі числа, які є у тексті.
+  </p>
+</head>
+
+<body>
+  <script>
+    const text = "Микита має 2 автомобіля, 1 причіп та 10 тракторів для ведення сільського господарства.";
+
+    const numbers = text.match(/\d+/g); // Шукаємо всі числа у тексті
+
+    console.log(numbers); // ["2", "1", "10"]
+  </script>
+</body>
+
+</html>

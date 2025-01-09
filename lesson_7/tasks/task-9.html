@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #9</h1>
+  <p>
+    Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних показів температури. <br>
+    <br>
+    Відповідь: Наразі вирішив задачу з додаванням одного значення, оскільки більша кількість значень передбачає роботу з масивами, які ми ще не починали проходити.
+  </p>
+
+  <script>
+    
+    // 1. Функція 
+    function getSum(temp) {
+      let countTemp = 0;
+
+      if (temp < 0)
+        countTemp++;
+
+      return {
+        countTemp: countTemp,
+
+      };
+    }
+
+    let testGetTemp = getSum(
+      parseInt(prompt('Введіть температурне значення')),
+    );
+    document.write(`
+      Кількість показників температури меншу за 0: ${testGetTemp.countTemp}.<br>
+    `)
+
+  </script>
+</body>
+
+</html>

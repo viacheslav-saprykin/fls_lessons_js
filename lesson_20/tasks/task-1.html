@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <form id="data-form">
+    <label>Вік: <input type="number" name="age"></label><br>
+    <label>Зріст: <input type="number" name="height"></label><br>
+    <label>Вага: <input type="number" name="weight"></label><br>
+    <label>Заробітна плата: <input type="number" name="salary"></label><br>
+    <label>Стаж: <input type="number" name="experience"></label><br>
+    <label>Номер відділу: <input type="number" name="department"></label><br>
+    <label>Порядковий номер: <input type="number" name="index"></label><br>
+  </form>
+
+  <script>
+    // Отримуємо форму
+    const form = document.getElementById('data-form');
+
+    // Додаємо обробник події click на форму
+    form.addEventListener('click', function(event) {
+      // Перевіряємо, чи клік був на input
+      if (event.target.tagName === 'INPUT' && event.target.type === 'number') {
+        event.target.value = 0; // Змінюємо значення на 0
+      }
+    });
+  </script>
+</body>
+
+</html>

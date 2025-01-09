@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #7</h1>
+  <p>
+    Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за: <br>
+    1. за весь рік; <br>
+    2. у першій половині року; <br>
+    3. у другій половині року; <br>
+    4. за літо; <br>
+    5. за ІІ квартал; <br>
+    6. за парні місяці (з парними номерами); <br>
+    7. за місяці, які є початковими у сезоні (весна, літо, осінь, зима). <br>
+    <br>
+    <br>
+    Відповідь:
+  </p>
+
+  <script>
+    // Вирішував самостійно
+
+    // 1) Сумарна кількість грошей за весь рік
+    // month        0    1    2    3    4    5    6    7    8    9    10    11
+    const profits = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200]
+
+    // let incomeForTheYear = 0
+    // for (let month = 0; month < profits.length; month++) {
+    //   incomeForTheYear += profits[month]
+    // }
+    // document.write(`1) Сумарна кількість грошей за весь рік становить = ${incomeForTheYear} <br>`)
+
+    // 2) Сумарна кількість грошей у першій половині року
+    // let incomeFirstHalfOfTheYear = 0
+    // for (let month = 0; month <= 5; month++) {
+    //   incomeFirstHalfOfTheYear += profits[month]
+    // }
+    // document.write(`2) Сумарна кількість грошей у першій половині року становить = ${incomeFirstHalfOfTheYear} <br>`)
+
+    // 3) Сумарна кількість грошей у другій половині року
+    // let incomeSecondHalfOfTheYear = 0
+    // for (let month = 6; month <= 11; month++) {
+    //   incomeSecondHalfOfTheYear += profits[month]
+    // }
+    // document.write(`3) Сумарна кількість грошей у другій половині року становить = ${incomeSecondHalfOfTheYear} <br>`)
+
+    // 4) Сумарна кількість грошей у літні місяці
+    // let incomeSummerTerm = 0
+    // for (let month = 5; month <= 7; month++) {
+    //   incomeSummerTerm += profits[month]
+    // }
+    // document.write(`4) Сумарна кількість грошей у літні місяці становить = ${incomeSummerTerm} <br>`)
+
+
+    // 5) Сумарна кількість грошей у II кварталі
+    // let incomeSecondQuarter = 0
+    // for (let month = 3; month <= 5; month++) {
+    //   incomeSecondQuarter += profits[month]
+    // }
+    // document.write(`5) Сумарна кількість грошей у II кварталі становить = ${incomeSecondQuarter} <br>`)
+
+    // 6) Сумарна кількість грошей у парні місці
+    // let incomePairMonth = 0
+    // for (let month = 0; month < 12; month += 2) {
+    //   incomePairMonth += profits[month]
+    // }
+    // document.write(`6) Сумарна кількість грошей у парні місці становить = ${incomePairMonth} <br>`)
+
+
+    // 7) Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+    // let incomeFirstMonthSeason = 0
+    // for (let month = 0; month < 12; month += 3) {
+    //   incomeFirstMonthSeason += profits[month]
+    // }
+    // document.write(`7) Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима) становить ${incomeFirstMonthSeason} <br>`)
+
+
+    // Рішення після поради лектора
+    function getPaymentsSumInRange(profits, startMonth, endMonth, step = 1) {
+      let result = 0
+      for (let m = startMonth - 1; m < endMonth; m+= step) {
+        result+=profits[m]
+      }
+      return result
+    }
+
+    const incomeForTheYear = getPaymentsSumInRange(profits, 1, 12)
+    const incomeFirstHalfOfTheYear = getPaymentsSumInRange(profits, 1, 6)
+    const incomeSecondHalfOfTheYear = getPaymentsSumInRange(profits, 6, 12)
+    const incomeSummerTerm = getPaymentsSumInRange(profits, 6, 8)
+    const incomeSecondQuarter = getPaymentsSumInRange(profits, 4, 6)
+    const incomePairMonth = getPaymentsSumInRange(profits, 2, 12, 2)
+    const incomeFirstMonthSeason = getPaymentsSumInRange(profits, 3, 12, 3)
+
+    document.write(`
+      Сумарна кількість грошей: <br>
+      ● за весь рік - становить ${incomeForTheYear}; <br>
+      ● у першій половині року - становить ${incomeFirstHalfOfTheYear}; <br>
+      ● у другій половині року - становить ${incomeSecondHalfOfTheYear}; <br>
+      ● за літо - становить ${incomeSummerTerm}; <br>
+      ● за ІІ квартал - становить ${incomeSecondQuarter}; <br>
+      ● за парні місяці (з парними номерами) - становить ${incomePairMonth}; <br>
+      ● за місяці, які є початковими у сезоні (весна, літо, осінь, зима) - становить ${incomeFirstMonthSeason}. <br>
+    `)
+  </script>
+
+</body>
+
+</html>

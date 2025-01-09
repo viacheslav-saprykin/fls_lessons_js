@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+</head>
+
+<body>
+  <h1>Задача #1</h1>
+  <p>
+    Користувач задає рік народження. Визначити кількість років користувача.
+  </p>
+
+
+  <script>
+    function calculateAge() {
+      const yearOfBirth = parseInt(prompt("Введіть ваш рік народження:")); // Отримуємо рік народження від користувача
+      if (isNaN(yearOfBirth) || yearOfBirth > new Date().getFullYear() || yearOfBirth < 1900) {
+        alert("Введено некоректний рік. Спробуйте ще раз.");
+        return;
+      }
+      const currentYear = new Date().getFullYear(); // Поточний рік
+      const age = currentYear - yearOfBirth; // Обчислюємо кількість років
+      alert(`Ваш вік - ${age} років.`);
+    }
+
+    calculateAge();
+  </script>
+
+</body>
+
+</html>
