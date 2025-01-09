@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+  <p>
+    Задача 4. Дано масив рядків. Вивести ті, у яких немає голосних літер.
+  </p>
+</head>
+
+<body>
+  <script>
+    const strings = [
+      "Kyiv",
+      "Berlin",
+      "Lviv",
+      "Munich",
+      "Frankfurt",
+      "Paris",
+      "TTTT",
+      "OOOO"
+    ];
+
+    const hasDigits = strings.filter(str => !/[aeiouyAEIOUY]/.test(str));
+
+    console.log(hasDigits);
+  </script>
+</body>
+
+</html>

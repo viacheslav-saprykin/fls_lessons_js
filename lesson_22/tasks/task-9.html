@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+  <p>
+    Задача 9. Дано рядок тексту. Перевірити, чи містить він дату у форматі dd.mm.yyyy (dd- день, mm- місяць, yyyy- рік).
+  </p>
+</head>
+
+<body>
+  <script>
+    const text = "Сьогодні 09.01.2025, а завтра буде 10.01.2025.";
+
+    const datePattern = /\b(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(\d{4})\b/;
+    const containsDate = datePattern.test(text); // Перевіряємо, чи є дата у тексті
+
+    console.log(containsDate ? "Текст містить дату" : "Текст не містить дату");
+
+    // Якщо потрібно знайти всі дати
+    const allDates = text.match(datePattern);
+    console.log(allDates); // ["09.01.2025"]
+
+  </script>
+</body>
+
+</html>
