@@ -202,8 +202,6 @@ p {
 
 .task5-1 {
   list-style: circle;
-<<<<<<< HEAD
-=======
 }
 
 table {
@@ -252,5 +250,4 @@ li {
 a:hover {
   text-decoration: underline;
   color: #0056a4;
->>>>>>> develop
 }
