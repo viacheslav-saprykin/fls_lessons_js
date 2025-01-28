@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+  <p>
+    Задача 1. <br> Дано список з віком учнів. Підрахувати скільки разів кожне значення зустрічається у списку і
+    максимальне. <br>
+  </p>
+</head>
+
+<body>
+  <script>
+    const ages = [16, 17, 16, 18, 17, 16, 19, 18];
+
+    const ageCounts = {};
+
+    for (const age of ages) {
+      if (ageCounts[age]) {
+        ageCounts[age] += 1;
+      } else {
+        ageCounts[age] = 1;
+      }
+    }
+
+    console.log("Частота кожного віку:", ageCounts);
+
+    let maxFrequency = 0;
+
+    for (const age in ageCounts) {
+      if (ageCounts[age] > maxFrequency) {
+        maxFrequency = ageCounts[age];
+      }
+    }
+
+    console.log("Максимальна частота:", maxFrequency);
+  </script>
+</body>
+
+</html>

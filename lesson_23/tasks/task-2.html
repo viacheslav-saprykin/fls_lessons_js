@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>JavaScript Course</title>
+  <p>
+    Задача 2. <br> Дано масив книг (назва, рік видання, автор). Підрахувати кількість книг для кожного автора. <br>
+  </p>
+</head>
+
+<body>
+  <script>
+    const books = [
+      { title: "Book A", year: 2021, author: "Author 1" },
+      { title: "Book B", year: 2023, author: "Author 2" },
+      { title: "Book C", year: 2021, author: "Author 1" },
+      { title: "Book D", year: 2025, author: "Author 3" },
+      { title: "Book E", year: 2023, author: "Author 2" },
+    ];
+
+    const authorCounts = {};
+
+    for (const book of books) {
+      const author = book.author;
+      if (authorCounts[author]) {
+        authorCounts[author] += 1;
+      } else {
+        authorCounts[author] = 1;
+      }
+    }
+
+    console.log("Кількість книг для кожного автора:", authorCounts);
+  </script>
+</body>
+
+</html>
